@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 151058459}
   - component: {fileID: 151058460}
   m_Layer: 0
-  m_Name: Hitpoint
+  m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -839,9 +839,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 151058457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f38937764f6ae245bb4bd01dfb53273, type: 3}
+  m_Script: {fileID: 11500000, guid: 39fff1e6a2a47db4bbc21dadfe918a65, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponDamage
+  m_EditorClassIdentifier: '::'
   damage: 20
 --- !u!1 &161309245
 GameObject:
@@ -7573,6 +7573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 4
   jumpHeight: 7
+  wallSlideSpeed: 2
+  wallJumpForce: {x: 5, y: 10}
   Spacebar: 32
   L: 97
   R: 100
@@ -7583,6 +7585,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  wallCheck: {fileID: 0}
+  wallCheckRadius: 0.3
 --- !u!114 &491324165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27027,7 +27031,7 @@ GameObject:
   - component: {fileID: 682176}
   m_Layer: 0
   m_Name: FireWizard
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WitchController : EnemyController
+public class WitchControllerJ : EnemyControllerJ
 {
     [Header("Attack Settings")]
     public GameObject fireballPrefab;    

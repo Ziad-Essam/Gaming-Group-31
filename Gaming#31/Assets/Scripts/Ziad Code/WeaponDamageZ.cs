@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class WeaponDamage : MonoBehaviour
+public class WeaponDamageZ : MonoBehaviour
 {
     public int damage = 20;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 1. Look for 'EnemeyController' (Matches your specific script name)
-        EnemyController enemy = collision.GetComponent<EnemyController>();
+        EnemyControllerZ enemy = collision.GetComponent<EnemyControllerZ>();
 
         if (enemy != null)
         {

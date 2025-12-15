@@ -3328,7 +3328,7 @@ Transform:
   m_GameObject: {fileID: 491324158}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.22, y: -1.83, z: 0}
+  m_LocalPosition: {x: 176.85, y: -1.04, z: 0}
   m_LocalScale: {x: 1.0015112, y: 0.97844535, z: 0.82378054}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3445,6 +3445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 4
   jumpHeight: 7
+  wallSlideSpeed: 2
+  wallJumpForce: {x: 5, y: 10}
   Spacebar: 32
   L: 97
   R: 100
@@ -3455,6 +3457,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  wallCheck: {fileID: 0}
+  wallCheckRadius: 0.3
 --- !u!114 &491324165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13248,11 +13252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1311bf9c8442cc444894f321c1949b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingEnemy
-  maxSpeed: 5
-  damage: 2
-  sr: {fileID: 1879683159}
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1 &1376967892
 GameObject:
   m_ObjectHideFlags: 0
@@ -13613,7 +13612,7 @@ GameObject:
   - component: {fileID: 1424991434}
   - component: {fileID: 1424991433}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -14712,11 +14711,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!212 &1879683159 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1601278031804023735, guid: 522c2087553805348959fec727fe017d, type: 3}
-  m_PrefabInstance: {fileID: 359021319}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1958061982
 GameObject:
   m_ObjectHideFlags: 0

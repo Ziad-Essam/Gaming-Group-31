@@ -4197,8 +4197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55311f0a89eae74ea3d894f06cfeb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  correctOrder: 
-  hiddenFloor: {fileID: 0}
+  correctOrder: 010000000300000002000000
+  hiddenFloor: {fileID: 1456070240}
 --- !u!114 &162227636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4212,7 +4212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ropeID: 1
-  manager: {fileID: 0}
+  manager: {fileID: 162227635}
   sr: {fileID: 0}
   hitColor: {r: 0, g: 1, b: 0.9472468, a: 1}
 --- !u!70 &162227637
@@ -4322,7 +4322,9 @@ Transform:
   m_LocalPosition: {x: 95.67, y: -11.1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1147555993}
+  - {fileID: 318630151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &163276033
@@ -7794,7 +7796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleRope
   ropeID: 3
-  manager: {fileID: 0}
+  manager: {fileID: 162227635}
   sr: {fileID: 0}
   hitColor: {r: 0, g: 1, b: 0.9723275, a: 1}
 --- !u!212 &318630150
@@ -7863,12 +7865,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318630147}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 103.85, y: -11.05, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.453334, y: 0.03333346, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 162227639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &320714951
 GameObject:
@@ -11062,7 +11064,7 @@ GameObject:
   - component: {fileID: 479023230}
   - component: {fileID: 479023232}
   m_Layer: 0
-  m_Name: Hitpoint
+  m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -11222,7 +11224,7 @@ Transform:
   m_GameObject: {fileID: 491324158}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.22, y: -2.88, z: 0}
+  m_LocalPosition: {x: 90.55, y: -14.35, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24607,7 +24609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleRope
   ropeID: 2
-  manager: {fileID: 0}
+  manager: {fileID: 162227635}
   sr: {fileID: 0}
   hitColor: {r: 0, g: 1, b: 0.98099947, a: 1}
 --- !u!212 &1147555992
@@ -24676,12 +24678,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147555989}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.45, y: -11.07, z: 0}
-  m_LocalScale: {x: -1.5, y: 1.5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.186666, y: 0.020000458, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 162227639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1151634244
 GameObject:
@@ -30509,7 +30511,7 @@ GameObject:
   - component: {fileID: 1456070242}
   - component: {fileID: 1456070241}
   m_Layer: 3
-  m_Name: Underground floor (18)
+  m_Name: Hidden Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43004,8 +43006,6 @@ SceneRoots:
   - {fileID: 603187213}
   - {fileID: 186693488}
   - {fileID: 162227639}
-  - {fileID: 1147555993}
-  - {fileID: 318630151}
   - {fileID: 1576963596}
   - {fileID: 1963535075}
   - {fileID: 1419693419}

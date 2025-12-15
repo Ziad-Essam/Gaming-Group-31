@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyControllerZ: MonoBehaviour
 {
     public float maxSpeed = 2;
     public int damage = 1;

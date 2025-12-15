@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyControllerJ : MonoBehaviour
 {
     public float maxSpeed = 2f;
     public int damage = 1;

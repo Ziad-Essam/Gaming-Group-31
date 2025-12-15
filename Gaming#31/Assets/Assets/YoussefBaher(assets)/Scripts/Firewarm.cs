@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Firewarm : EnemyController
+public class Firewarm : EnemyControllerYB
 {
     public AppearPlatform platformToAppear;
 

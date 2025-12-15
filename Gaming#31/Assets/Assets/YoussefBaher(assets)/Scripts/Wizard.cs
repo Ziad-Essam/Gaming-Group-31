@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Wizard : EnemyController
+public class Wizard : EnemyControllerYB
 {
     [Header("Movement")]
     public float speed = 2f;
@@ -70,7 +70,7 @@ public class Wizard : EnemyController
             return;
         }
 
-        anim.SetTrigger("Attack");
+        anim.SetTrigger("Attacking");
 
         Vector2 direction = (player.position - firePoint.position).normalized;
 

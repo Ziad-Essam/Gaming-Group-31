@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class IceGolemBoss : EnemyController
+public class IceGolemBossYS : EnemyControllerYS
 {
     [Header("Weapon")]
     public GameObject shadowWeapon; // DRAG Shadow_Weapon HERE

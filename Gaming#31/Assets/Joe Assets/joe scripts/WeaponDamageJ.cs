@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class WeaponDamage : MonoBehaviour
+public class WeaponDamageJ : MonoBehaviour
 {
     public int damage = 20;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 1. Look for 'EnemeyController'
-        EnemyController enemy = collision.GetComponent<EnemyController>();
+        EnemyControllerJ enemy = collision.GetComponent<EnemyControllerJ>();
 
         if (enemy != null)
         {

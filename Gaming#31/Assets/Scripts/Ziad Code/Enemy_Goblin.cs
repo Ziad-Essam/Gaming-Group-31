@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Goblin : EnemyController
+public class Enemy_Goblin : EnemyControllerZ
 {
     [Header("Manual Weapon Setup")]
     public GameObject goblinWeapon; // DRAG YOUR EMPTY OBJECT HERE

@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class WeaponDamage : MonoBehaviour
+public class WeaponDamageYB : MonoBehaviour
 {
     public int damage = 20;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyController enemy = collision.GetComponentInParent<EnemyController>();
+        EnemyControllerYB enemy = collision.GetComponentInParent<EnemyControllerYB>();
 
         if (enemy != null)
         {

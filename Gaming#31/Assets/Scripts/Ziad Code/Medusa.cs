@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Medusa : EnemyController
+public class Enemy_Medusa : EnemyControllerZ
 {
     [Header("Weapon Setup")]
     public GameObject medusaProjectile; 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemy : MonoBehaviour
+public class SpawnEnemyZ : MonoBehaviour
 {
     public Transform enemy;
     public Transform spawnPoint;

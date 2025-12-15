@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatformJ : MonoBehaviour
 {
     // --- Configurable Variables (Set in Inspector) ---
     public float moveSpeed = 1.5f;             // How fast the platform moves
