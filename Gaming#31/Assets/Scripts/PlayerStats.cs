@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
 
     public bool isImmune = false;
     private float immunityTime = 0f;
-    public float immunityDuration = 1.5f;
+    public float immunityDuration = 0.5f;
 
     public TextMeshProUGUI scoreUI;
     public TextMeshProUGUI livesUI;
@@ -42,33 +42,36 @@ public class PlayerStats : MonoBehaviour
         }
     }   
 
-
-    public void TakeDamage(int damage)
+public void TakeDamage(int damage)
     {
-    if (isImmune == false )
-{
-health = health - damage;
-if (health < 0)
-health = 0;
-if (lives > 0 && health == 0)
-{
-FindObjectOfType<LevelManager>().RespawnPlayer();
-health = 3;
-lives--;
-}
+        // 1. Only run this if we are NOT currently immune
+        if (isImmune == false)
+        {
+            health = health - damage;
+            
+            if (health < 0) health = 0;
 
-else if (lives == 0 && health == 0)
-{
-Debug.Log("Gameover");
-Destroy(this.gameObject);
-}
+            if (lives > 0 && health == 0)
+            {
+                FindObjectOfType<LevelManager>().RespawnPlayer();
+                health = 100; // Note: You might want '100' here if max health is 100?
+                lives--;
+            }
+            else if (lives == 0 && health == 0)
+            {
+                Debug.Log("Gameover");
+                Destroy(this.gameObject);
+            }
 
-Debug.Log("Player Health:" + health.ToString()); 
-Debug.Log("Player Lives:" + lives.ToString());
-}
-isImmune = true;
-immunityTime = 0f;
-}
+            Debug.Log("Player Health:" + health.ToString());
+            Debug.Log("Player Lives:" + lives.ToString());
+
+            // 2. MOVED INSIDE THE IF STATEMENT
+            // Now the timer only resets when you actually take damage.
+            isImmune = true;
+            immunityTime = 0f;
+        }
+    }
     
    
 void Update()
