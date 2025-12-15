@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public float moveSpeed;
     public float jumpHeight;
     public KeyCode Spacebar;
@@ -15,26 +14,26 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
+    
     private bool grounded;
     private Animator anim;
     private int currentAttack = 0;
+    private float m_timeSinceAttack = 0.0f;
+    private bool m_rolling = false;
+    private Rigidbody2D m_body2d; // You weren't using this variable, but I kept it
+    private bool m_isWallSliding = false;
+    private float m_rollCurrentTime;
+    private float m_rollDuration = 8.0f / 14.0f;
 
-        private float               m_timeSinceAttack = 0.0f;
-        private bool                m_rolling = false;
-        private Rigidbody2D         m_body2d;
-        private bool                m_isWallSliding = false;
-        private float               m_rollCurrentTime;
-        
-        private float               m_rollDuration = 8.0f / 14.0f;
+    // --- NEW VARIABLE ---
+    private bool isFacingRight = true; // Tracks which way we are looking
 
-    
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        m_body2d = GetComponent<Rigidbody2D>(); // Initialized this just in case
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(Spacebar) && grounded)
@@ -42,98 +41,87 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
+        // --- MOVEMENT LEFT ---
         if (Input.GetKey(L))
         {
             GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().linearVelocity.y);
 
-            if(GetComponent<SpriteRenderer>()!=null)
+            // If we are looking right, FLIP to look left
+            if (isFacingRight)
             {
-                GetComponent<SpriteRenderer>().flipX = true;
+                Flip();
             }
-            
-           
         }
-
-         if (Input.GetKey(R))
+        // --- MOVEMENT RIGHT ---
+        else if (Input.GetKey(R))
         {
             GetComponent<Rigidbody2D>().linearVelocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().linearVelocity.y);
-        
-            if(GetComponent<SpriteRenderer>()!=null)
+
+            // If we are looking left, FLIP to look right
+            if (!isFacingRight)
             {
-                GetComponent<SpriteRenderer>().flipX = false;
+                Flip();
             }
-            
         }
-            anim.SetFloat("Speed",Mathf.Abs(GetComponent<Rigidbody2D>().linearVelocity.x));
-            anim.SetFloat("Height", GetComponent<Rigidbody2D>().linearVelocity.y);
-            anim.SetBool("Grounded", grounded);
 
+        anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().linearVelocity.x));
+        anim.SetFloat("Height", GetComponent<Rigidbody2D>().linearVelocity.y);
+        anim.SetBool("Grounded", grounded);
 
+        m_timeSinceAttack += Time.deltaTime;
 
-
-             m_timeSinceAttack += Time.deltaTime;
-
-        // Increase timer that checks roll duration
-        if(m_rolling)
+        // Roll Logic
+        if (m_rolling)
             m_rollCurrentTime += Time.deltaTime;
 
-        // Disable rolling if timer extends duration
-        if(m_rollCurrentTime > m_rollDuration)
+        if (m_rollCurrentTime > m_rollDuration)
             m_rolling = false;
 
-            //Attack
-         if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !m_rolling)
+        // --- ATTACK ---
+        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !m_rolling)
         {
             currentAttack++;
+            if (currentAttack > 3) currentAttack = 1;
+            if (m_timeSinceAttack > 1.0f) currentAttack = 1;
 
-            // Loop back to one after third attack
-            if (currentAttack > 3)
-                currentAttack = 1;
-
-            // Reset Attack combo if time since last attack is too large
-            if (m_timeSinceAttack > 1.0f)
-                currentAttack = 1;
-
-            // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             anim.SetTrigger("Attack" + currentAttack);
-
-            // Reset timer
             m_timeSinceAttack = 0.0f;
         }
 
-        // Block
+        // --- BLOCK ---
         else if (Input.GetMouseButtonDown(1) && !m_rolling)
         {
             anim.SetTrigger("Block");
             anim.SetBool("IdleBlock", true);
         }
-
         else if (Input.GetMouseButtonUp(1))
+        {
             anim.SetBool("IdleBlock", false);
+        }
 
-
-             // Roll
+        // --- ROLL ---
         else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
         {
             m_rolling = true;
             anim.SetTrigger("Roll");
-            
-            
         }
-            
-
-
     }
 
     void Jump()
-    {  
-
-      GetComponent<Rigidbody2D>().linearVelocity = new Vector2(GetComponent<Rigidbody2D>().linearVelocity.x, jumpHeight) ;
+    {
+        GetComponent<Rigidbody2D>().linearVelocity = new Vector2(GetComponent<Rigidbody2D>().linearVelocity.x, jumpHeight);
     }
 
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
     }
-   
+
+    // --- NEW HELPER FUNCTION ---
+    void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        // Rotate the player 180 degrees. This moves the Weapon Hitbox to the correct side!
+        transform.Rotate(0f, 180f, 0f);
+    }
 }
