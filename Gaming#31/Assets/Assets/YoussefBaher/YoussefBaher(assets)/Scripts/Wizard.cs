@@ -2,18 +2,16 @@ using UnityEngine;
 
 public class Wizard : EnemyController
 {
-    [Header("Movement")]
     public float speed = 2f;
     public float detectDistance = 6f;
     public float stopDistance = 2f;
 
-    [Header("Shooting")]
     public GameObject fireballPrefab;
     public Transform firePoint;
     public float shootCooldown = 2f;
 
-    private Transform player;
-    private float shootTimer = 0f;
+    Transform player;
+    float shootTimer;
 
     protected override void Start()
     {
@@ -43,10 +41,10 @@ public class Wizard : EnemyController
         {
             anim.SetBool("IsWalking", true);
 
-            Vector2 dir = (player.position - transform.position).normalized;
-            rb.linearVelocity = new Vector2(dir.x * speed, rb.linearVelocity.y);
+            float dir = player.position.x > transform.position.x ? 1 : -1;
+            rb.linearVelocity = new Vector2(dir * speed, rb.linearVelocity.y);
 
-            sr.flipX = dir.x < 0;
+            sr.flipX = dir < 0;
         }
         else
         {
@@ -64,15 +62,9 @@ public class Wizard : EnemyController
 
     void Shoot()
     {
-        if (fireballPrefab == null || firePoint == null)
-        {
-            Debug.LogError("Wizard missing fireballPrefab or firePoint!");
-            return;
-        }
+        anim.SetTrigger("Attacking");
 
-        anim.SetTrigger("Attack");
-
-        Vector2 direction = (player.position - firePoint.position).normalized;
+        float dir = sr.flipX ? -1f : 1f;
 
         GameObject fireball = Instantiate(
             fireballPrefab,
@@ -81,13 +73,6 @@ public class Wizard : EnemyController
         );
 
         Rigidbody2D rbFire = fireball.GetComponent<Rigidbody2D>();
-        if (rbFire != null)
-        {
-            rbFire.linearVelocity = direction * 5f;
-        }
-        else
-        {
-            Debug.LogError("Fireball has NO Rigidbody2D!");
-        }
+        rbFire.linearVelocity = new Vector2(dir * 5f, 0f);
     }
 }
