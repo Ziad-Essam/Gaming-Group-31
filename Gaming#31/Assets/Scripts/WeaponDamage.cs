@@ -6,7 +6,6 @@ public class WeaponDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Get enemy even if collider is a child or trigger
         EnemyController enemy = collision.GetComponentInParent<EnemyController>();
 
         if (enemy != null)
