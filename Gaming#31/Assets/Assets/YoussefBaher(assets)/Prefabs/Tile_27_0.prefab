@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3369025658569854023}
   - component: {fileID: 6545396604865851527}
   - component: {fileID: -1835192907934492182}
-  - component: {fileID: -4873038710776483207}
+  - component: {fileID: 3077990337137351828}
   m_Layer: 0
   m_Name: Tile_27_0
   m_TagString: Untagged
@@ -138,7 +138,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.56, y: 1.27}
   m_EdgeRadius: 0
---- !u!114 &-4873038710776483207
+--- !u!114 &3077990337137351828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 898621902213916642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e7e3cf6dff46446b7dde8f48a9c782, type: 3}
+  m_Script: {fileID: 11500000, guid: 67e27d51499541f4ab221b4f8eee55b2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Death
+  m_EditorClassIdentifier: Assembly-CSharp::Deadly
+  damageAmount: 100
