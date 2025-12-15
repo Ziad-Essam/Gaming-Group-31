@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 413f0b42207fde24094e071b537c4239
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1870395844201964199
+    second: void assets 3 png_0
+  - first:
+      213: 4442055624043586571
+    second: void assets 3 png_1
+  - first:
+      213: -2090656711027604582
+    second: void assets 3 png_2
+  - first:
+      213: -2425588463771646873
+    second: void assets 3 png_3
+  - first:
+      213: -754696271957668485
+    second: void assets 3 png_4
+  - first:
+      213: 2844447921036958462
+    second: void assets 3 png_5
+  - first:
+      213: -5291813163692487899
+    second: void assets 3 png_6
+  - first:
+      213: -8630652610250615650
+    second: void assets 3 png_7
+  - first:
+      213: 3674094681210703460
+    second: void assets 3 png_8
+  - first:
+      213: -6747487305180521917
+    second: void assets 3 png_9
+  - first:
+      213: -8993438910586597261
+    second: void assets 3 png_10
+  - first:
+      213: 4467115147164879681
+    second: void assets 3 png_11
+  - first:
+      213: -5208984528495985688
+    second: void assets 3 png_12
+  - first:
+      213: -6048322321214902579
+    second: void assets 3 png_13
+  - first:
+      213: 4325849919807262491
+    second: void assets 3 png_14
+  - first:
+      213: -6939218604583422003
+    second: void assets 3 png_15
+  - first:
+      213: 4401953236200065843
+    second: void assets 3 png_16
+  - first:
+      213: 3980788899020470211
+    second: void assets 3 png_17
+  - first:
+      213: -8721084788233320335
+    second: void assets 3 png_18
+  - first:
+      213: -3695975171794032114
+    second: void assets 3 png_19
+  - first:
+      213: -2112937408788975600
+    second: void assets 3 png_20
+  - first:
+      213: 3661232269416213050
+    second: void assets 3 png_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: void assets 3 png_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 223
+        width: 49
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2660b4c1bf4f910800000000000000
+      internalID: 1870395844201964199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 160
+        width: 48
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b04e4a71e0a55ad30800000000000000
+      internalID: 4442055624043586571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_2
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 59
+        width: 49
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a93c9ef4cce7cf2e0800000000000000
+      internalID: -2090656711027604582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_3
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 213
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7640b9db424965ed0800000000000000
+      internalID: -2425588463771646873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_4
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 157
+        width: 101
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7dc6ac3db7c685f0800000000000000
+      internalID: -754696271957668485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 163
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efa918b4052897720800000000000000
+      internalID: 2844447921036958462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_6
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 173
+        width: 12
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b8f5007f3bf86b0800000000000000
+      internalID: -5291813163692487899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_7
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 173
+        width: 23
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94d63a9d23c93880800000000000000
+      internalID: -8630652610250615650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_8
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 173
+        width: 11
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46e47b875a10df230800000000000000
+      internalID: 3674094681210703460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_9
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 131
+        width: 14
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ad140bb0c1c52a0800000000000000
+      internalID: -6747487305180521917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_10
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 104
+        width: 103
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3705f49c5f2e03380800000000000000
+      internalID: -8993438910586597261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_11
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 131
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b878dfe816efd30800000000000000
+      internalID: 4467115147164879681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_12
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 131
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ebbd727b28f5b7b0800000000000000
+      internalID: -5208984528495985688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_13
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 131
+        width: 17
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce6bece4ea001ca0800000000000000
+      internalID: -6048322321214902579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_14
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 131
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f83cd2591880c30800000000000000
+      internalID: 4325849919807262491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 131
+        width: 11
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc7f507d171f2bf90800000000000000
+      internalID: -6939218604583422003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_16
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 77
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33b06915521e61d30800000000000000
+      internalID: 4401953236200065843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_17
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 62
+        width: 105
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7feeb996a9e3730800000000000000
+      internalID: 3980788899020470211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_18
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 84
+        width: 54
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1784a45679b78f680800000000000000
+      internalID: -8721084788233320335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_19
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 11
+        width: 187
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0aad82d92245bcc0800000000000000
+      internalID: -3695975171794032114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_20
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 14
+        width: 192
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 010bf7c1f965da2e0800000000000000
+      internalID: -2112937408788975600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void assets 3 png_21
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 27
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a20cad95f4fc230800000000000000
+      internalID: 3661232269416213050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      void assets 3 png_0: 1870395844201964199
+      void assets 3 png_1: 4442055624043586571
+      void assets 3 png_10: -8993438910586597261
+      void assets 3 png_11: 4467115147164879681
+      void assets 3 png_12: -5208984528495985688
+      void assets 3 png_13: -6048322321214902579
+      void assets 3 png_14: 4325849919807262491
+      void assets 3 png_15: -6939218604583422003
+      void assets 3 png_16: 4401953236200065843
+      void assets 3 png_17: 3980788899020470211
+      void assets 3 png_18: -8721084788233320335
+      void assets 3 png_19: -3695975171794032114
+      void assets 3 png_2: -2090656711027604582
+      void assets 3 png_20: -2112937408788975600
+      void assets 3 png_21: 3661232269416213050
+      void assets 3 png_3: -2425588463771646873
+      void assets 3 png_4: -754696271957668485
+      void assets 3 png_5: 2844447921036958462
+      void assets 3 png_6: -5291813163692487899
+      void assets 3 png_7: -8630652610250615650
+      void assets 3 png_8: 3674094681210703460
+      void assets 3 png_9: -6747487305180521917
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
