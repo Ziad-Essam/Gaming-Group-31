@@ -2,47 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance;
 
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
+    public AudioClip footstepSFX;
+    public AudioClip overworldMusic;
+    public AudioClip caveMusic;
 
-  public static AudioManager Instance;
+    public AudioClip[] variousSFX;
 
-public AudioSource musicSource;
-public AudioSource sfxSource;
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-public AudioClip overworldMusic;
-public AudioClip caveMusic;
-
-public AudioClip[] variousSFX;
-
-
-void Awake()
-{
-	if (Instance == null)
-	{
-		Instance = this;
-		DontDestroyOnLoad(gameObject);
-	} else Destroy (gameObject);
-}
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         musicSource.clip = overworldMusic;
         musicSource.Play();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void PlayMusicSFX(AudioClip clip)
     {
@@ -55,11 +45,11 @@ void Awake()
         musicSource.clip = clip;
         musicSource.Play();
     }
+
     public void PlayRandomSFX(params AudioClip[] clips)
     {
-        variousSFX = clips;
-
-        int index = Random.Range(0,variousSFX.Length);
-        sfxSource.PlayOneShot(variousSFX[index]);
+        int index = Random.Range(0, clips.Length);
+        sfxSource.PlayOneShot(clips[index]);
     }
+
 }
