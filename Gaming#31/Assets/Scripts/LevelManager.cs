@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     {
         FindObjectOfType<PlayerController>().transform.position = CurrentCheckpoint.transform.position;
  // 1. Find all active enemies in the scene
-    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemies");
 
     // 2. Loop through them and destroy them one by one
     foreach (GameObject enemy in enemies)

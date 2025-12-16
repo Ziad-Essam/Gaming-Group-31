@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    public int damage = 25;
+    public int damage = 1;
+    public float lifeTime = 3f;
 
-    void OnTriggerEnter2D(Collider2D other)
+    void Start()
+    {
+        Destroy(gameObject, lifeTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

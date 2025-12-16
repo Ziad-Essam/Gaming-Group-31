@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e168902868fbbe24ead15be5dc6b68dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 4
-  damage: 20
+  speed: 4.1
+  damage: 10
 --- !u!70 &6878270024672598156
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

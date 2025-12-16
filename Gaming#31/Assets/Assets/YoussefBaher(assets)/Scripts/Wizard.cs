@@ -2,18 +2,16 @@ using UnityEngine;
 
 public class Wizard : EnemyControllerYB
 {
-    [Header("Movement")]
     public float speed = 2f;
     public float detectDistance = 6f;
     public float stopDistance = 2f;
 
-    [Header("Shooting")]
     public GameObject fireballPrefab;
     public Transform firePoint;
     public float shootCooldown = 2f;
 
-    private Transform player;
-    private float shootTimer = 0f;
+    Transform player;
+    float shootTimer;
 
     protected override void Start()
     {
@@ -23,14 +21,12 @@ public class Wizard : EnemyControllerYB
 
     void Update()
     {
-        if (dead || player == null)
+        if (isDead || player == null)
             return;
 
         shootTimer += Time.deltaTime;
-
         float distance = Vector2.Distance(transform.position, player.position);
 
-        // TOO FAR → IDLE
         if (distance > detectDistance)
         {
             anim.SetBool("IsWalking", false);
@@ -38,25 +34,23 @@ public class Wizard : EnemyControllerYB
             return;
         }
 
-        // WALK
         if (distance > stopDistance)
         {
             anim.SetBool("IsWalking", true);
 
-            Vector2 dir = (player.position - transform.position).normalized;
-            rb.linearVelocity = new Vector2(dir.x * speed, rb.linearVelocity.y);
-
-            sr.flipX = dir.x < 0;
+            float dir = player.position.x > transform.position.x ? 1f : -1f;
+            rb.linearVelocity = new Vector2(dir * speed, 0f);
+            sr.flipX = dir < 0;
         }
         else
         {
-            // STOP AND SHOOT
             anim.SetBool("IsWalking", false);
             rb.linearVelocity = Vector2.zero;
 
             if (shootTimer >= shootCooldown)
             {
-                Shoot();
+                anim.SetTrigger("Attack");
+                Shoot(); 
                 shootTimer = 0f;
             }
         }
@@ -65,12 +59,7 @@ public class Wizard : EnemyControllerYB
     void Shoot()
     {
         if (fireballPrefab == null || firePoint == null)
-        {
-            Debug.LogError("Wizard missing fireballPrefab or firePoint!");
             return;
-        }
-
-        anim.SetTrigger("Attacking");
 
         Vector2 direction = (player.position - firePoint.position).normalized;
 
@@ -81,13 +70,29 @@ public class Wizard : EnemyControllerYB
         );
 
         Rigidbody2D rbFire = fireball.GetComponent<Rigidbody2D>();
-        if (rbFire != null)
-        {
-            rbFire.linearVelocity = direction * 5f;
-        }
-        else
-        {
-            Debug.LogError("Fireball has NO Rigidbody2D!");
-        }
+        rbFire.linearVelocity = direction * 5f;
     }
+
+
+    public override void Die()
+{
+    if (isDead) return;
+    isDead = true;
+
+    rb.linearVelocity = Vector2.zero;
+    rb.simulated = false;
+
+    anim.SetTrigger("IsDead");
+
+    // 🔴 THIS IS THE FIX
+    StartCoroutine(DeathRoutine());
 }
+private System.Collections.IEnumerator DeathRoutine()
+{
+    yield return new WaitForSeconds(1.0f); // match death animation length
+    Destroy(gameObject);
+}
+
+
+}
+

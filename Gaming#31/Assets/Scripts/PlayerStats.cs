@@ -44,7 +44,7 @@ public class PlayerStats : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
 
-        // Bridge Inspector → Static
+        // Bridge Inspector  Static
         if (healthBar != null)
             HealthBarRef = healthBar;
 

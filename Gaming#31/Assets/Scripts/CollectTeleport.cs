@@ -18,7 +18,7 @@ public class CollectTeleport : MonoBehaviour
                 PlayerStats.lives = 3;
 
                 // Accessing NON-STATIC variable (Specific to this player object)
-                stats.hasTeleport = true; 
+                stats.hasTeleport = true;
 
                 AudioManager.Instance.PlayMusicSFX(TPsound);
                 Debug.Log("Lives: " + PlayerStats.lives);
