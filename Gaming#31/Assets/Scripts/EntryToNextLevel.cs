@@ -1,24 +1,37 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // 1. Added this line
+using UnityEngine.SceneManagement;
 
 public class EntryToNextLevel : MonoBehaviour
 {
-    // 2. Deleted "public Scene SceneManager;" - You don't need it!
-
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && PlayerStats.hasTeleport == true)
+        if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(3);
-            Debug.Log("Lives: " + PlayerStats.lives);
-            Debug.Log("HP: " + PlayerStats.health);
-            Debug.Log("Score: " + PlayerStats.score);
-            AudioManager.Instance.PlayMusic(AudioManager.Instance.caveMusic);
-            
-        }
-        else
-        {
-            FindObjectOfType<LevelManager>().RespawnPlayer();
+            PlayerStats stats = other.GetComponent<PlayerStats>();
+
+            // Check if player has the ability required to pass
+            if (stats != null && stats.hasTeleport == true)
+            {
+                // --- GENERAL AUTOMATIC LOADING ---
+                // 1. Get the number (index) of the current level
+                int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+
+                // 2. Load the next number in the list
+                SceneManager.LoadScene(currentLevelIndex + 1);
+
+                Debug.Log("Moved to next level index: " + (currentLevelIndex + 1));
+
+                // Keep audio logic
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayMusic(AudioManager.Instance.caveMusic);
+                }
+            }
+            else
+            {
+                Debug.Log("Access Denied!");
+                FindObjectOfType<LevelManager>().RespawnPlayer();
+            }
         }
     }
 }
