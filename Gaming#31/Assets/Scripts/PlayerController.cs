@@ -7,14 +7,14 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpHeight = 10f;
-
+    
     [Header("Wall Mechanics")]
     public float wallSlideSpeed = 2f;               // How fast you slide down
     public Vector2 wallJumpForce = new Vector2(5f, 10f); // Power of wall jump (X, Y)
 
     [Header("Controls")]
     public KeyCode Spacebar = KeyCode.Space;
-    public KeyCode L = KeyCode.A;
+    public KeyCode L = KeyCode.A; 
     public KeyCode R = KeyCode.D;
     public KeyCode Block;                           // Assign in Inspector (e.g. Mouse 1)
     public KeyCode Attack;                          // Assign in Inspector (e.g. Mouse 0)
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask whatIsGround;
-
+    
     public Transform wallCheck;                     // Drag your "WallCheck" object here
     public float wallCheckRadius = 0.3f;            // Radius slightly larger to keep contact
 
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
     private bool isTouchingWall;
     private bool isWallSliding;
-    private bool isFacingRight = true;
-
+    private bool isFacingRight = true; 
+    
 
     private Animator anim;
     private Rigidbody2D m_body2d;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>(); 
     }
 
     void Update()
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         // 1. TIMERS
 
         m_timeSinceAttack += Time.deltaTime;
-
+        
         if (m_rolling)
         {
             m_rollCurrentTime += Time.deltaTime;
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         // Physics Checks
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
+        
         if (wallCheck != null)
             isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, whatIsGround);
     }
@@ -90,13 +90,13 @@ public class PlayerController : MonoBehaviour
             }
             else if (isWallSliding)
             {
-
+              
                 // Jump AWAY from the wall
                 if (isFacingRight)
-                    Jump(new Vector2(-wallJumpForce.x, wallJumpForce.y));
+                    Jump(new Vector2(-wallJumpForce.x, wallJumpForce.y)); 
                 else
-                    Jump(new Vector2(wallJumpForce.x, wallJumpForce.y));
-
+                    Jump(new Vector2(wallJumpForce.x, wallJumpForce.y));  
+                
                 Flip(); // Turn around immediately
             }
         }
@@ -108,14 +108,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(L))
             {
                 m_body2d.linearVelocity = new Vector2(-moveSpeed, m_body2d.linearVelocity.y);
-
+                
                 // FIX: Only Flip if NOT currently sliding on a wall (prevents "air slide" bug)
                 if (isFacingRight && !isWallSliding) Flip();
             }
             else if (Input.GetKey(R))
             {
                 m_body2d.linearVelocity = new Vector2(moveSpeed, m_body2d.linearVelocity.y);
-
+                
                 // FIX: Only Flip if NOT currently sliding on a wall
                 if (!isFacingRight && !isWallSliding) Flip();
             }
@@ -154,8 +154,8 @@ public class PlayerController : MonoBehaviour
     {
         // 1. Check if player is trying to move AWAY from the wall
         bool isMovingAway = false;
-        if (isFacingRight && m_body2d.linearVelocity.x < -0.1f) isMovingAway = true;
-        if (!isFacingRight && m_body2d.linearVelocity.x > 0.1f) isMovingAway = true;
+        if(isFacingRight && m_body2d.linearVelocity.x < -0.1f) isMovingAway = true;
+        if(!isFacingRight && m_body2d.linearVelocity.x > 0.1f) isMovingAway = true;
 
         // 2. Wall Slide Logic
         // We allow sliding if: Touching Wall + Not Grounded + Falling (< 0.1f) + NOT trying to escape
@@ -177,9 +177,9 @@ public class PlayerController : MonoBehaviour
     void Jump(Vector2 dir)
     {
         // Reset Y velocity for consistent jump height
-        m_body2d.linearVelocity = new Vector2(m_body2d.linearVelocity.x, 0);
-
-        if (dir == Vector2.up)
+        m_body2d.linearVelocity = new Vector2(m_body2d.linearVelocity.x, 0); 
+        
+        if(dir == Vector2.up)
             m_body2d.AddForce(dir * jumpHeight * 50f); // Normal Jump
         else
             m_body2d.AddForce(dir * 50f); // Wall Jump (already scaled)
@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Grounded", grounded);
         anim.SetBool("WallSlide", isWallSliding);
     }
-
+    
     // --- ERROR FIX ---
     // Catches the "SlideDust" event from the animation so the game doesn't crash
     public void AE_SlideDust()
