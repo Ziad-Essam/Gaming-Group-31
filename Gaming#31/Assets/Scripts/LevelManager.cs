@@ -23,5 +23,18 @@ public class LevelManager : MonoBehaviour
     public void RespawnPlayer()
     {
         FindObjectOfType<PlayerController>().transform.position = CurrentCheckpoint.transform.position;
+ // 1. Find all active enemies in the scene
+    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemies");
+
+    // 2. Loop through them and destroy them one by one
+    foreach (GameObject enemy in enemies)
+    {
+        FindObjectOfType<PlayerController>().transform.position = CurrentCheckpoint.transform.position;
+        Destroy(enemy);
+    }
+
+    // ... Your existing respawn code (moving player to checkpoint, etc.) ...
+    Debug.Log("Player Respawned - Enemies Cleared");
+
     }
 }
