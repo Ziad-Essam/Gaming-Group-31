@@ -19,6 +19,7 @@ public class DeathJ : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
     }
 }

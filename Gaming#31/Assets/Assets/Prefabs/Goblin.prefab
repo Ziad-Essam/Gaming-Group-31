@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8385940374077953825}
   m_Layer: 0
   m_Name: Goblin
-  m_TagString: Enemy
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,10 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3703ecbc24e02a4a998a861e0764ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ghost
-  maxSpeed: 4.3
-  damage: 10
+  maxSpeed: 4.15
+  damage: 5
   sr: {fileID: 8636082159124881587}
-  maxHealth: 50
+  maxHealth: 40
   currentHealth: 0
   goblinWeapon: {fileID: 1777982915163895645}
   chaseRange: 7
