@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpHeight = 10f;
     
+
+
     [Header("Wall Mechanics")]
     public float wallSlideSpeed = 2f;               // How fast you slide down
     public Vector2 wallJumpForce = new Vector2(5f, 10f); // Power of wall jump (X, Y)
