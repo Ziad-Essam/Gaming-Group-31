@@ -7,13 +7,11 @@ public class SpawnEnemy : MonoBehaviour
     public Transform enemy;
 
     public Transform spawnPoint;
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

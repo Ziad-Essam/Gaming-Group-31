@@ -10,7 +10,7 @@ public class MovingPlatform2J : MonoBehaviour
 
     void Start()
     {
-        targetPosition = PointB.position; // start moving toward B
+        targetPosition = PointB.position;
     }
 
     void Update()

@@ -14,7 +14,6 @@ public class x_platform : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(AtoB==true){

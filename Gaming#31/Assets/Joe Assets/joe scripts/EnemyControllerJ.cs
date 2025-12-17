@@ -11,8 +11,7 @@ public class EnemyControllerJ : MonoBehaviour
 
     protected Animator anim;
     protected bool isDead = false;
-    protected Rigidbody2D rb; // Declared here for consistency
-
+    protected Rigidbody2D rb; 
     public virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -33,7 +32,6 @@ public class EnemyControllerJ : MonoBehaviour
 
         currentHealth -= damageAmount;
 
-        // REMOVED: anim.SetTrigger("Hurt"); -- This is now handled by the derived classes (Witch/Shadow)
 
         Debug.Log(gameObject.name + " took damage! HP: " + currentHealth);
 
@@ -43,7 +41,6 @@ public class EnemyControllerJ : MonoBehaviour
         }
     }
 
-    // Base Die() is virtual, allowing specific enemies to override the animation/destruction timing.
     public virtual void Die()
     {
         if (isDead) return;
@@ -51,7 +48,6 @@ public class EnemyControllerJ : MonoBehaviour
 
         Debug.Log(gameObject.name + " died!");
 
-        // Default behavior for simple enemies
         Destroy(gameObject);
     }
 
@@ -61,7 +57,6 @@ public class EnemyControllerJ : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            // Note: FindObjectOfType<PlayerStats>() is usually slow; consider a direct reference if possible.
             PlayerStats player = FindObjectOfType<PlayerStats>();
             if (player != null)
             {

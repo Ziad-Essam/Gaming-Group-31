@@ -4,8 +4,7 @@ using UnityEngine;
 public class IceGolemBossYS : EnemyControllerYS
 {
     [Header("Weapon")]
-    public GameObject shadowWeapon; // DRAG Shadow_Weapon HERE
-
+    public GameObject shadowWeapon; 
     [Header("AI Settings")]
     public float chaseRange = 5f;
     public float attackRange = 1.2f;
@@ -16,13 +15,12 @@ public class IceGolemBossYS : EnemyControllerYS
 
     public override void Start()
     {
-        base.Start(); // Initializes sr, anim, rb, currentHealth
+        base.Start();
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             player = playerObj.transform;
 
-        // Weapon OFF at start
         if (shadowWeapon != null)
             shadowWeapon.SetActive(false);
     }
@@ -35,7 +33,6 @@ public class IceGolemBossYS : EnemyControllerYS
 
         if (distToPlayer <= attackRange)
         {
-            // ----- ATTACK STATE -----
             rb.linearVelocity = Vector2.zero;
 
             if (Time.time >= nextAttackTime)
@@ -50,13 +47,11 @@ public class IceGolemBossYS : EnemyControllerYS
         }
         else if (distToPlayer <= chaseRange)
         {
-            // ----- CHASE STATE -----
             ChasePlayer();
             anim.SetBool("IsRunning", true);
         }
         else
         {
-            // ----- IDLE STATE -----
             rb.linearVelocity = Vector2.zero;
             anim.SetBool("IsRunning", false);
         }
@@ -91,26 +86,23 @@ public class IceGolemBossYS : EnemyControllerYS
             shadowWeapon.SetActive(false);
     }
 
-    // OVERRIDE: To ensure Shadow flinches when hit
     public override void TakeDamage(int damageAmount)
     {
         if (isDead) return;
         base.TakeDamage(damageAmount);
         
-        // Flinch/hurt animation logic
         if (!isDead && anim != null) 
         {
             anim.SetTrigger("Hurt"); 
         }
     }
 
-    // OVERRIDE: Handles death specific to the Shadow
     public override void Die()
     {
         if (isDead) return; 
         isDead = true;
 
-        if (anim != null) anim.SetTrigger("death"); // Animation trigger is called first
+        if (anim != null) anim.SetTrigger("death"); 
 
         rb.linearVelocity = Vector2.zero;
         rb.simulated = false;
@@ -118,10 +110,8 @@ public class IceGolemBossYS : EnemyControllerYS
         if (shadowWeapon != null)
             shadowWeapon.SetActive(false);
 
-        // Stop AI completely
         this.enabled = false;
 
-        // Destroy after death animation
         Destroy(gameObject, 1.5f);
     }
 }

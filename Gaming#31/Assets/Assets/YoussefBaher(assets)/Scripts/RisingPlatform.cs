@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RisingPlatform : MonoBehaviour
+public class RisingPlatformYB : MonoBehaviour
 {
     public  Transform PointA;
      public  Transform PointB;
@@ -14,7 +14,6 @@ public class RisingPlatform : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(AtoB==true){

@@ -6,7 +6,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    public AudioSource musicSource;
     public AudioSource sfxSource;
 
     public AudioClip footstepSFX;
@@ -30,8 +29,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        musicSource.clip = overworldMusic;
-        musicSource.Play();
+        
     }
 
     public void PlayMusicSFX(AudioClip clip)
@@ -42,8 +40,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic(AudioClip clip)
     {
-        musicSource.clip = clip;
-        musicSource.Play();
+        
     }
 
     public void PlayRandomSFX(params AudioClip[] clips)

@@ -26,14 +26,11 @@ public class EnemyControllerZ: MonoBehaviour
     {
         currentHealth -= damageAmount;
         
-        // --- NEW CODE START ---
-        // Play the Hurt animation if we have one
         Animator anim = GetComponent<Animator>();
         if (anim != null)
         {
             anim.SetTrigger("Hurt");
         }
-        // --- NEW CODE END ---
 
         Debug.Log(gameObject.name + " took damage! HP: " + currentHealth);
 
@@ -46,7 +43,6 @@ public class EnemyControllerZ: MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + " Died!");
-        // Play death animation here if you have one later!
         Destroy(gameObject);
     }
 
@@ -54,17 +50,15 @@ public class EnemyControllerZ: MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            // We still want to damage the player if we touch them
             if(FindObjectOfType<PlayerStats>() != null) 
             {
                FindObjectOfType<PlayerStats>().TakeDamage(damage);
             }
             
-            // DELETE THIS LINE: flip();  <--- This was causing the bug!
         }
         else if (other.tag == "Wall")
         {
-            flip(); // Keep this! We still want to flip if we hit a wall.
+            flip(); 
         }
     }
 }

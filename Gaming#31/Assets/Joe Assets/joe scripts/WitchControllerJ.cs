@@ -25,7 +25,6 @@ public class WitchControllerJ : EnemyControllerJ
 
     void FixedUpdate()
     {
-        // Enforce Stationary Position
         if (rb != null && !isDead)
         {
             rb.linearVelocity = Vector2.zero;
@@ -37,10 +36,8 @@ public class WitchControllerJ : EnemyControllerJ
 
         if (distToPlayer <= attackRange)
         {
-            // 1. Witch faces the player visually 
             LookAtPlayer(); 
             
-            // 2. Check Cooldown
             if (Time.time >= nextAttackTime)
             {
                 ShootFireball();
@@ -49,16 +46,15 @@ public class WitchControllerJ : EnemyControllerJ
         }
     }
 
-    // Witch flips to face the player for visual coherence
     void LookAtPlayer()
     {
         if (transform.position.x < player.position.x)
         {
-            sr.flipX = true; // Player is right: Witch faces right
+            sr.flipX = true; 
         }
         else
         {
-            sr.flipX = false; // Player is left: Witch faces left
+            sr.flipX = false; 
         }
     }
 
@@ -66,28 +62,22 @@ public class WitchControllerJ : EnemyControllerJ
     {
         if (anim != null) anim.SetTrigger("Shoot"); 
 
-        // 1. Calculate the vector from the shooting point TOWARDS the player
         Vector3 directionToPlayer = (player.position - shootingPoint.position).normalized; 
 
-        // 2. Create the fireball instance
         GameObject fireball = Instantiate(fireballPrefab, shootingPoint.position, Quaternion.identity);
         
-        // 3. Get components 
         Rigidbody2D rbFireball = fireball.GetComponent<Rigidbody2D>();
         EnemyFireball fballScript = fireball.GetComponent<EnemyFireball>();
         
-        // 4. Set linearVelocity 
         if (rbFireball != null && fballScript != null)
         {
             rbFireball.linearVelocity = directionToPlayer * fballScript.speed; 
             
-            // 5. Rotate the projectile sprite to face the direction of travel
             float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
             fireball.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
     }
     
-    // OVERRIDE: Takes damage, calls base logic, and plays Hurt animation.
     public override void TakeDamage(int damageAmount)
     {
         if (isDead) return;
@@ -100,7 +90,6 @@ public class WitchControllerJ : EnemyControllerJ
         }
     }
     
-    // OVERRIDE: Handles death specific to the Witch (animation and delayed destroy).
     public override void Die()
     {
         if (isDead) return;

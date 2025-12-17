@@ -23,12 +23,10 @@ void Start()
 
     while (true)
     {
-        // WIND ON
         windActive = true;
         windParticles.Play();
         yield return new WaitForSeconds(windOnTime);
 
-        // WIND OFF
         windActive = false;
         windParticles.Stop();
         yield return new WaitForSeconds(windOffTime);

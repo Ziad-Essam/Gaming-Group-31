@@ -5,8 +5,7 @@ using UnityEngine;
 public class Enemy_Goblin : EnemyControllerZ
 {
     [Header("Manual Weapon Setup")]
-    public GameObject goblinWeapon; // DRAG YOUR EMPTY OBJECT HERE
-
+    public GameObject goblinWeapon; 
     [Header("AI Settings")]
     public float chaseRange = 5f;
     public float attackRange = 1.2f;
@@ -26,7 +25,7 @@ public class Enemy_Goblin : EnemyControllerZ
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) player = playerObj.transform;
         
-        // Ensure weapon is off at start
+        
         if(goblinWeapon != null) goblinWeapon.SetActive(false);
     }
 
@@ -39,15 +38,15 @@ public class Enemy_Goblin : EnemyControllerZ
 
         if (distToPlayer < attackRange)
         {
-            // --- STATE: ATTACKING / WAITING ---
-            rb.linearVelocity = Vector2.zero; // Stop moving
+           
+            rb.linearVelocity = Vector2.zero; 
             
-            // If we are waiting for cooldown, play IDLE
+          
             if (Time.time < nextAttackTime)
             {
-                anim.SetBool("IsRunning", false); // Go to Idle
+                anim.SetBool("IsRunning", false); 
             }
-            // If cooldown is finished, ATTACK
+            
             else
             {
                 StartCoroutine(PerformAttack());
@@ -56,53 +55,41 @@ public class Enemy_Goblin : EnemyControllerZ
         }
         else if (distToPlayer < chaseRange)
         {
-            // --- STATE: CHASING ---
             ChasePlayer();
-            anim.SetBool("IsRunning", true); // Play Run anim
+            anim.SetBool("IsRunning", true); 
         }
         else
         {
-            // --- STATE: IDLE / PATROL ---
-            rb.linearVelocity = Vector2.zero; // Stop for now (or add patrol logic)
-            anim.SetBool("IsRunning", false); // Play Idle
+            rb.linearVelocity = Vector2.zero; 
+            anim.SetBool("IsRunning", false); 
         }
     }
 
    void ChasePlayer()
     {
-        // 1. Determine which side the player is on
+        
         if (transform.position.x < player.position.x)
         {
-            // --- PLAYER IS TO THE RIGHT ---
             rb.linearVelocity = new Vector2(maxSpeed, rb.linearVelocity.y);
             
-            // Rotate to face RIGHT (180 degrees)
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
-            // --- PLAYER IS TO THE LEFT ---
             rb.linearVelocity = new Vector2(-maxSpeed, rb.linearVelocity.y);
             
-            // Rotate to face LEFT (0 degrees - Default)
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
-    // This Coroutine handles the attack timing smoothly
     IEnumerator PerformAttack()
     {
-        anim.SetTrigger("Attack"); // Play animation
-        
-        // Wait a tiny bit so the sword actually swings visually before damage happens
+        anim.SetTrigger("Attack"); 
         yield return new WaitForSeconds(0.2f); 
         
-        // Enable the HITBOX (The object you made)
         if(goblinWeapon != null) goblinWeapon.SetActive(true);
 
-        // Keep it on for a split second
         yield return new WaitForSeconds(0.3f);
 
-        // Disable the HITBOX
         if(goblinWeapon != null) goblinWeapon.SetActive(false);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SkeletonEnemy : EnemyController
 {
-    public GameObject goblinWeapon;
+    public GameObject SkeletonWeapon;
     public float chaseRange = 5f;
     public float attackRange = 1.2f;
     public float attackCooldown = 2f;
@@ -17,8 +17,8 @@ public class SkeletonEnemy : EnemyController
         anim = GetComponent<Animator>();
 
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        if (goblinWeapon != null)
-            goblinWeapon.SetActive(false);
+        if (SkeletonWeapon != null)
+            SkeletonWeapon.SetActive(false);
     }
 
     void Update()
@@ -61,10 +61,10 @@ public class SkeletonEnemy : EnemyController
         anim.SetTrigger("Attack");
 
         yield return new WaitForSeconds(0.25f);
-        goblinWeapon.SetActive(true);
+        SkeletonWeapon.SetActive(true);
 
         yield return new WaitForSeconds(0.25f);
-        goblinWeapon.SetActive(false);
+        SkeletonWeapon.SetActive(false);
 
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;

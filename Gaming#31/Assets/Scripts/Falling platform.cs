@@ -30,17 +30,13 @@ public class FallingPlatform : MonoBehaviour
 
     IEnumerator FallAndReturn()
     {
-        // wait before falling
         yield return new WaitForSeconds(fallDelay);
 
-        // fall
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 2.5f;
 
-        // wait before returning
         yield return new WaitForSeconds(returnDelay);
 
-        // reset
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.bodyType = RigidbodyType2D.Kinematic;

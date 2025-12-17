@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class FireballYB : MonoBehaviour
 {
     public int damage = 1;
     public float lifeTime = 3f;

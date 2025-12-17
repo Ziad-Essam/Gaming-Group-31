@@ -19,6 +19,6 @@ public class Firewarm : EnemyControllerYB
         if (platformToAppear != null)
             platformToAppear.Appear();
 
-        gameObject.SetActive(false); // disappear immediately
+        gameObject.SetActive(false); 
     }
 }

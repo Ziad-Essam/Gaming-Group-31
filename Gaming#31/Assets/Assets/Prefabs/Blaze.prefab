@@ -9,7 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5581441706376560198}
+  - component: {fileID: 631018705597684802}
   - component: {fileID: 2724288079365280330}
+  - component: {fileID: 2147568520053062714}
+  - component: {fileID: 6229615793874135247}
+  - component: {fileID: 8190788702832674766}
+  - component: {fileID: 4632378691940670134}
   - component: {fileID: 7163381359295618689}
   m_Layer: 0
   m_Name: weapon
@@ -33,6 +38,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8246423169753099379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &631018705597684802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357417623307555426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16d314112129884286f477e02abbe4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDamageT
+  damage: 10
+  damagesPlayer: 0
+  damagesEnemy: 1
 --- !u!114 &2724288079365280330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +66,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 20
+--- !u!114 &2147568520053062714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357417623307555426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fff1e6a2a47db4bbc21dadfe918a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDamageYB
+  damage: 30
+--- !u!114 &6229615793874135247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357417623307555426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4b421fb91a0be43b3bfe0450669e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDamageYS
+  damage: 40
+--- !u!114 &8190788702832674766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357417623307555426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b82673a49e573e4588cfb2a364ebf96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDamage
+  damage: 50
+--- !u!114 &4632378691940670134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357417623307555426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980ee2ef6dd5053439c766f938912908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDamageJ
+  damage: 60
 --- !u!70 &7163381359295618689
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -306,9 +378,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   hasTeleport: 0
+  healthBar: {fileID: 0}
   hasBossKey: 0
   fragmentIconPrefab: {fileID: 6880136769693560365, guid: 8d2612939826131409340faed96f812c, type: 3}
-  fragmentPanel: {fileID: 0}
+  fragmentPanel: {fileID: 8708837481416081221, guid: 713942d154f713047addb42d57a1ec60, type: 3}
   flickerDuration: 0.1
   isImmune: 0
   immunityDuration: 0.1

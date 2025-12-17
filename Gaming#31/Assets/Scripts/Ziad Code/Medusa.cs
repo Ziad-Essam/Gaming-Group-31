@@ -16,7 +16,6 @@ public class Enemy_Medusa : EnemyControllerZ
     private Transform player;
     private float nextAttackTime = 0;
     
-    // VARIABLES
     private Animator anim;
     private Rigidbody2D rb;
     private bool isAttacking = false; 
@@ -36,7 +35,6 @@ public class Enemy_Medusa : EnemyControllerZ
     {
         if (player == null) return;
         
-        // Don't rotate or move while actually throwing the projectile (mid-animation)
         if (isAttacking) 
         {
             rb.linearVelocity = Vector2.zero;
@@ -45,13 +43,11 @@ public class Enemy_Medusa : EnemyControllerZ
 
         float distToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // 1. ATTACK RANGE
         if (distToPlayer < attackRange)
         {
-            rb.linearVelocity = Vector2.zero; // Stop moving
+            rb.linearVelocity = Vector2.zero; 
             anim.SetBool("IsRunning", false);
 
-            // FIX: Face the player even while standing still!
             LookAtPlayer();
 
             if (Time.time >= nextAttackTime)
@@ -60,17 +56,13 @@ public class Enemy_Medusa : EnemyControllerZ
                 nextAttackTime = Time.time + attackCooldown;
             }
         }
-        // 2. CHASE RANGE
         else if (distToPlayer < chaseRange)
         {
-            // Reset trigger to prevent stuck animations
             anim.ResetTrigger("Attack"); 
             
-            // Move and Look
             ChasePlayer();
             anim.SetBool("IsRunning", true);
         }
-        // 3. IDLE
         else
         {
             rb.linearVelocity = Vector2.zero;
@@ -78,19 +70,14 @@ public class Enemy_Medusa : EnemyControllerZ
         }
     }
 
-    // --- NEW HELPER FUNCTION ---
    void LookAtPlayer()
     {
-        // Player is to the RIGHT
         if (transform.position.x < player.position.x)
         {
-            // Face Right (0 rotation)
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        // Player is to the LEFT
         else
         {
-            // Face Left (180 rotation)
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
@@ -99,15 +86,12 @@ public class Enemy_Medusa : EnemyControllerZ
     {
         LookAtPlayer();
 
-        // Ensure movement matches the rotation we just set
         if (transform.position.x < player.position.x)
         {
-            // Move Right (Positive speed)
             rb.linearVelocity = new Vector2(maxSpeed, rb.linearVelocity.y);
         }
         else
         {
-            // Move Left (Negative speed)
             rb.linearVelocity = new Vector2(-maxSpeed, rb.linearVelocity.y);
         }
     }
@@ -121,8 +105,6 @@ public class Enemy_Medusa : EnemyControllerZ
         
         if(medusaProjectile != null && firePoint != null)
         {
-            // CHANGE THIS LINE:
-            // Use firePoint.rotation so the bullet spawns facing the same way as the Medusa
             Instantiate(medusaProjectile, firePoint.position, firePoint.rotation);
         }
 

@@ -332,11 +332,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonEnemy
   maxSpeed: 2
-  damage: 1
-  health: 50
+  damage: 10
+  health: 40
   sr: {fileID: 0}
   anim: {fileID: 0}
-  goblinWeapon: {fileID: 0}
+  SkeletonWeapon: {fileID: 0}
   chaseRange: 8
   attackRange: 2
   attackCooldown: 2

@@ -2,23 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Death : MonoBehaviour
+public class DeathT : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    private  void OnTriggerEnter2D(Collider2D other)
-    {
-         if (other.tag=="Player")
-         FindObjectOfType<LevelManager>().RespawnPlayer();
-    }
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        PlayerStats player = other.GetComponent<PlayerStats>();
+        if (other.tag == "Player")
+        {
+            player.TakeDamage(PlayerStats.maxHealth);
+            
+        }
     }
 }

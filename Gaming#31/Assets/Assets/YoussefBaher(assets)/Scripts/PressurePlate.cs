@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public PuzzlePlatform[] platforms; // ARRAY of platforms
+    public PuzzlePlatform[] platforms;
     private bool activated = false;
 
-    private Animator anim; // 🔹 ADDED
+    private Animator anim;
 
     void Start()
     {
-        anim = GetComponent<Animator>(); // 🔹 ADDED
+        anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,16 +18,16 @@ public class PressurePlate : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            // 🔹 PLAY PRESS ANIMATION
+            
             anim.SetBool("Pressed", true);
 
-            // show all platforms
+            
             for (int i = 0; i < platforms.Length; i++)
             {
                 platforms[i].Show();
             }
 
-            activated = true; // 🔒 only once
+            activated = true;
         }
     }
 }

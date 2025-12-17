@@ -14,14 +14,12 @@ public class DesertBoss : EnemyController
     private Transform player;
     private float shootTimer = 0f;
 
-    // FIX IS HERE
     protected override void Start()
     {
         base.Start();
 
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-        // Boss should NEVER move
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
     }
@@ -38,7 +36,6 @@ public class DesertBoss : EnemyController
         if (distance > detectDistance)
             return;
 
-        // Face the player
         sr.flipX = player.position.x < transform.position.x;
 
         if (shootTimer >= shootCooldown)
@@ -73,12 +70,11 @@ public class DesertBoss : EnemyController
 
         anim.SetTrigger("IsDead");
 
-        //  THIS IS THE FIX
         StartCoroutine(DeathRoutine());
     }
     private System.Collections.IEnumerator DeathRoutine()
     {
-        yield return new WaitForSeconds(1.0f); // match death animation length
+        yield return new WaitForSeconds(1.0f); 
         Destroy(gameObject);
     }
 }

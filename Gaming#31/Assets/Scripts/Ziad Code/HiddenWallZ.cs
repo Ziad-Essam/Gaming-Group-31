@@ -3,9 +3,8 @@ using UnityEngine;
 public class HiddenWallZ : MonoBehaviour
 {
     [Header("Setup")]
-    public GameObject fakeWallArt;   // The sprite that looks like a wall
-    public Collider2D solidBlocker;  // The invisible wall that will turn ON later
-
+    public GameObject fakeWallArt;   
+    public Collider2D solidBlocker;  
     [Header("Settings")]
     public float fadeSpeed = 2f;
     private SpriteRenderer wallSR;
@@ -13,13 +12,11 @@ public class HiddenWallZ : MonoBehaviour
 
     void Start()
     {
-        // 1. Setup the Blocker
         if (solidBlocker != null)
         {
-            solidBlocker.enabled = false; // Start OPEN so player can enter
+            solidBlocker.enabled = false; 
         }
 
-        // 2. Setup the Art
         if (fakeWallArt != null)
         {
             wallSR = fakeWallArt.GetComponent<SpriteRenderer>();
@@ -28,7 +25,6 @@ public class HiddenWallZ : MonoBehaviour
 
     void Update()
     {
-        // Smoothly fade out the wall when revealed
         if (isRevealed && wallSR != null)
         {
             wallSR.color = Color.Lerp(wallSR.color, new Color(1, 1, 1, 0.2f), Time.deltaTime * fadeSpeed);
@@ -39,7 +35,7 @@ public class HiddenWallZ : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isRevealed = true; // Start fading the wall
+            isRevealed = true; 
         }
     }
 
@@ -47,8 +43,6 @@ public class HiddenWallZ : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // LOCK THE DOOR!
-            // When the player passes through and exits this trigger, we turn on the solid wall.
             if (solidBlocker != null)
             {
                 solidBlocker.enabled = true; 

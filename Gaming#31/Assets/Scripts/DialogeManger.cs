@@ -26,7 +26,6 @@ public class Dialogue : MonoBehaviour
         continueButton.SetActive(false);
     }
 
-    // Called from NPC
     public void SetSentences(string[] sentences)
     {
         dialogueSentences = sentences;
@@ -34,7 +33,6 @@ public class Dialogue : MonoBehaviour
         textDisplay.text = "";
     }
 
-    // Start dialogue safely
     public void StartDialogue()
     {
         if (dialogueSentences == null || dialogueSentences.Length == 0)
@@ -43,7 +41,6 @@ public class Dialogue : MonoBehaviour
         dialogueBox.SetActive(true);
         continueButton.SetActive(false);
 
-        // Freeze player
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX |
                                RigidbodyConstraints2D.FreezePositionY |
                                RigidbodyConstraints2D.FreezeRotation;
@@ -56,7 +53,6 @@ public class Dialogue : MonoBehaviour
 
     public void NextSentence()
     {
-        // 🔒 SAFETY CHECK (prevents your error)
         if (dialogueSentences == null || dialogueSentences.Length == 0)
             return;
 
@@ -98,7 +94,6 @@ public class Dialogue : MonoBehaviour
         dialogueSentences = null;
         index = 0;
 
-        // Unfreeze player (movement allowed again)
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }

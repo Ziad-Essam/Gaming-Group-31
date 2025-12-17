@@ -22,7 +22,7 @@ public class RespawnsEnemy : MonoBehaviour
         for (int i = 0; i < maxSpawns; i++)
         {
             Vector3 spawnPos = transform.position;
-            spawnPos.x += i * spawnSpacing; // spread them horizontally
+            spawnPos.x += i * spawnSpacing;
 
             Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         }

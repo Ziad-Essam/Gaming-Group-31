@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        PlayerStats player = other.GetComponent<PlayerStats>();
         if (other.tag == "Player")
-            FindObjectOfType<LevelManager>().RespawnPlayer();
+        {
+            player.TakeDamage(PlayerStats.maxHealth);
+            
+        }
     }
     void Start()
     {
 
     }
-
-    // Update is called once per frame
     void Update()
     {
 

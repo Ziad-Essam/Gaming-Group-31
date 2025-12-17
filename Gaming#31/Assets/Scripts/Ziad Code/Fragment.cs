@@ -6,12 +6,11 @@ public class FragmentPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Find the stats script to run the UI function
             PlayerStats stats = other.GetComponent<PlayerStats>();
             
             if (stats != null)
             {
-                stats.AddFragment(); // This adds the number AND the picture
+                stats.AddFragment(); 
             }
             
             Destroy(gameObject);

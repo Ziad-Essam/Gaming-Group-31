@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
         sr.flipX = !sr.flipX;
     }
 
-    // PLAYER TOUCH
+
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (isDead) return;
@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // CALLED BY WEAPON
+    
     public void TakeDamage(int dmg)
     {
         if (isDead) return;

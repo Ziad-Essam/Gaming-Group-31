@@ -84,7 +84,6 @@ public class Wizard : EnemyControllerYB
 
     anim.SetTrigger("IsDead");
 
-    // 🔴 THIS IS THE FIX
     StartCoroutine(DeathRoutine());
 }
 private System.Collections.IEnumerator DeathRoutine()

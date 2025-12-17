@@ -17,7 +17,6 @@ public class EnemyFireball : MonoBehaviour
 
     void Update()
     {
-        // Destroy after a timeout to prevent infinite travel
         if ((timer += Time.deltaTime) >= lifeTime)
         {
             Destroy(gameObject); 
@@ -26,22 +25,19 @@ public class EnemyFireball : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        // 1. Check if the fireball hits the Player
         if (other.CompareTag("Player")) 
         {
-            // Try to get the PlayerStats script 
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
             if (playerStats != null)
             {
                 playerStats.TakeDamage(damage);
             }
             
-            Destroy(gameObject); // Destroy the fireball on hit
+            Destroy(gameObject); 
         }
-        // 2. Check if the fireball hits a Wall/Obstacle
         else if (other.CompareTag("Wall")) 
         {
-            Destroy(gameObject); // Destroy the fireball on wall hit
+            Destroy(gameObject); 
         }
     }
 }

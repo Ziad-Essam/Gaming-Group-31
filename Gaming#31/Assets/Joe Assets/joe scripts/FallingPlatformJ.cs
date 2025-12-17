@@ -30,14 +30,11 @@ public class FallingPlatformJ : MonoBehaviour
 
     IEnumerator FallAndReturn()
     {
-        // wait before falling
         yield return new WaitForSeconds(fallDelay);
 
-        // fall
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 2.5f;
 
-        // wait before returning
         yield return new WaitForSeconds(returnDelay);
 
         // reset

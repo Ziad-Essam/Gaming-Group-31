@@ -5,25 +5,24 @@ using UnityEngine;
 public class Deadly : MonoBehaviour
 {
 
-    public int damageAmount = 100; // Amount to kill instantly (assuming Max HP is 100)
-
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player"){
+
+        PlayerStats player = other.GetComponent<PlayerStats>();
+        if (other.tag == "Player")
+        {
+            player.TakeDamage(PlayerStats.maxHealth);
             
-          FindObjectOfType<PlayerStats>().TakeDamage(damageAmount);
-        FindObjectOfType<LevelManager>().RespawnPlayer();
-    }
+        }
     }
 }

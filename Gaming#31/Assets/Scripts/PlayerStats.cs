@@ -6,7 +6,6 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    // --- PERSISTENT STATS (Shared across all scenes) ---
     public static int maxHealth = 100;
     public static int health = 100;
     public static int lives = 3;
@@ -15,12 +14,9 @@ public class PlayerStats : MonoBehaviour
 
     public bool hasTeleport = false;
 
-    // --- HEALTH BAR (Inspector + Static Bridge) ---
     [Header("UI - Health")]
-    public Image healthBar;                 // assign in Inspector
-    public static Image HealthBarRef;        // static runtime reference
-
-    // --- LEVEL SPECIFIC STATS ---
+    public Image healthBar;                 
+    public static Image HealthBarRef;        
     public bool hasBossKey = false;
 
     [Header("UI - Fragments")]
@@ -44,11 +40,9 @@ public class PlayerStats : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
 
-        // Bridge Inspector  Static
         if (healthBar != null)
             HealthBarRef = healthBar;
 
-        // Safety reset after game over
         if (lives <= 0)
         {
             lives = 3;
@@ -58,7 +52,6 @@ public class PlayerStats : MonoBehaviour
             fragments = 0;
         }
 
-        // Restore fragment icons
         if (fragmentPanel != null && fragmentIconPrefab != null)
         {
             foreach (Transform child in fragmentPanel)
@@ -71,7 +64,6 @@ public class PlayerStats : MonoBehaviour
         UpdateHealthBar();
     }
 
-    // --- FRAGMENTS ---
     public void AddFragment()
     {
         fragments++;
@@ -80,29 +72,37 @@ public class PlayerStats : MonoBehaviour
             Instantiate(fragmentIconPrefab, fragmentPanel);
     }
 
-    // --- DAMAGE ---
     public void TakeDamage(int damage)
     {
         if (isImmune) return;
 
         health -= damage;
-        if (health < 0) health = 0;
-
-        UpdateHealthBar();
-
-        if (lives > 0 && health == 0)
+        
+        if (health <= 0)
         {
-            if (FindObjectOfType<LevelManager>() != null)
-                FindObjectOfType<LevelManager>().RespawnPlayer();
+            health = 0;
+            
+            lives--; 
+            
+            if (livesUI != null) livesUI.text = "Lives: " + lives + " | HP: 0/" + maxHealth;
 
-            health = maxHealth;
-            lives--;
-            UpdateHealthBar();
+            if (lives > 0)
+            {
+                if (FindObjectOfType<LevelManager>() != null)
+                    FindObjectOfType<LevelManager>().RespawnPlayer();
+
+                health = maxHealth;
+                UpdateHealthBar();
+            }
+            else
+            {
+                Debug.Log("Game Over");
+                Destroy(gameObject); 
+            }
         }
-        else if (lives == 0 && health == 0)
+        else
         {
-            Debug.Log("Game Over");
-            Destroy(gameObject);
+            UpdateHealthBar();
         }
 
         Debug.Log("Player Health: " + health);
@@ -112,14 +112,12 @@ public class PlayerStats : MonoBehaviour
         immunityTime = 0f;
     }
 
-    // --- HEALTH BAR UPDATE ---
     void UpdateHealthBar()
     {
         if (HealthBarRef != null)
             HealthBarRef.fillAmount = (float)health / maxHealth;
     }
 
-    // --- VISUAL DAMAGE EFFECT ---
     void SpriteFlicker()
     {
         if (flickerTime < flickerDuration)

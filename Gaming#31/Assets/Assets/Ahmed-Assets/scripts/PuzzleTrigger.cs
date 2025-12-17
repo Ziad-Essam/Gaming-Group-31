@@ -12,11 +12,7 @@ public class PuzzleTrigger : MonoBehaviour
         if (other.CompareTag("Player") && !activated)
         {
             activated = true;
-
-            // Drop the box
             box.bodyType = RigidbodyType2D.Dynamic;
-
-            // Activate platform
             platform.Activate();
         }
     }
